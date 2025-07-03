@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -25,12 +26,14 @@ const HeroSection = () => {
           and connect with industry leaders in our flagship hackathon event.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            size="lg" 
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
-          >
-            Apply Now
-          </Button>
+          <Link to="/apply">
+            <Button 
+              size="lg" 
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
+            >
+              Apply Now
+            </Button>
+          </Link>
           <button className="text-purple-600 hover:text-purple-700 font-semibold text-lg transition-colors duration-300 hover:underline">
             Learn More →
           </button>

@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -13,12 +14,6 @@ const ApplicationForm = () => {
     description: "",
     github: ""
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -35,7 +30,7 @@ const ApplicationForm = () => {
           <p className="text-xl text-gray-600">Ready to join the AI revolution? Submit your application today.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-gray-50 rounded-2xl p-8 space-y-6">
+        <div className="bg-gray-50 rounded-2xl p-8 space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <Label htmlFor="name" className="text-base font-medium text-gray-700 mb-2 block">
@@ -114,14 +109,15 @@ const ApplicationForm = () => {
             />
           </div>
 
-          <Button 
-            type="submit" 
-            size="lg" 
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
-          >
-            Submit Application
-          </Button>
-        </form>
+          <Link to="/apply">
+            <Button 
+              size="lg" 
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 text-lg font-semibold transition-all duration-300 hover:scale-105"
+            >
+              Complete Full Application
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );
